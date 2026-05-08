@@ -1,0 +1,17 @@
+// Monitor Xiaomi (Utama di posisi 0,0)
+output "DP-1" {
+    mode "2560x1440@99.946"
+    position x=0 y=0
+    focus-at-startup
+}
+
+// Monitor LG (Diletakkan di sebelah kanan Xiaomi)
+output "HDMI-A-2" {
+    mode "1920x1080@60.000"
+    position x=2560 y=0
+}
+
+// Monitor Laptop (Dimatikan)
+output "eDP-1" {
+    off
+}

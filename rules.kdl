@@ -1,0 +1,107 @@
+// ===============================
+// FINAL: macOS-like wallpaper glass blur
+// ===============================
+
+// Global blur.
+// Dibuat sedang: blur tetap kelihatan, tapi detail wallpaper masih tampak.
+blur {
+    passes 3
+    offset 3.5
+    noise 0.02
+    saturation 1.7
+}
+
+// Semua window: rounded + transparan + blur wallpaper
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+
+    // Kunci supaya wallpaper kelihatan.
+    // 0.70 = wallpaper sangat kelihatan
+    // 0.75 = seimbang
+    // 0.82 = lebih solid
+    opacity 0.74
+
+    background-effect {
+        blur true
+
+        // Penting: true = blur ambil dari wallpaper/backdrop,
+        // bukan dari window lain di bawahnya.
+        xray true
+
+        noise 0.02
+        saturation 1.7
+    }
+}
+
+// Window yang sedang fokus dibuat sedikit lebih solid
+// supaya teks masih nyaman dibaca.
+window-rule {
+    match is-focused=true
+    opacity 0.82
+}
+
+// Steam main window tetap floating
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^[Ss]team$"#
+    open-floating true
+}
+
+// Steam notification toast
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+// Noctalia wallpaper harus masuk backdrop Niri.
+// Ini penting supaya xray blur bisa mengambil wallpaper.
+layer-rule {
+    match namespace="^noctalia-wallpaper.*"
+    place-within-backdrop true
+}
+
+// Kitty normal: ikut layout Niri
+window-rule {
+    match app-id="^kitty$"
+    open-floating false
+    default-column-width { proportion 0.5; }
+}
+
+// Kitty terminal: buka floating, posisi tengah, ukuran seperti contoh
+window-rule {
+    match app-id="^kitty$"
+
+    open-floating true
+    default-floating-position x=0 y=320 relative-to="top"
+    default-column-width { fixed 900; }
+    default-window-height { fixed 470; }
+    geometry-corner-radius 20
+    clip-to-geometry true
+    opacity 0.74
+
+    background-effect {
+        blur true
+        xray true
+        noise 0.02
+        saturation 1.7
+    }
+}
+
+// Kitty saat fokus: sedikit lebih solid
+window-rule {
+    match app-id="^kitty$" is-focused=true
+    opacity 0.82
+}
+
+// Aturan khusus Firefox untuk monitor LG
+window-rule {
+    match app-id="firefox"
+    
+    // Paksa terbuka di monitor LG (HDMI-A-2)
+    open-on-output "HDMI-A-2"
+    
+    // Agar Firefox langsung penuh satu layar (opsional)
+    default-column-width { proportion 1.0; }
+}
