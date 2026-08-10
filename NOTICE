@@ -1,0 +1,32 @@
+Parts of this repository are not my own work.
+
+misc.kdl, keybinds.kdl, autostart.kdl, layout.kdl and rules.kdl started as
+copies of the niri configuration that CachyOS ships in
+https://github.com/CachyOS/cachyos-niri-noctalia under
+etc/skel/.config/niri/cfg/, taken at commit 8938e953 (2026-04-22). That
+repository is licensed under the GNU General Public License version 3, and
+copyright in the original files stays with the CachyOS authors. misc.kdl is
+byte for byte identical to the upstream file at that commit. keybinds.kdl is
+the upstream file with the launcher moved to Mod+A, Mod+Return repointed at a
+personal script, Mod+F changed to fullscreen, and several binds removed.
+autostart.kdl keeps the upstream comment header and adds blueman-applet.
+rules.kdl keeps the two Steam window rules, the geometry corner radius rule
+and the Noctalia wallpaper layer rule. layout.kdl keeps the upstream gap and
+preset column width skeleton.
+
+Because those files are derivative works of GPL-3.0 code, this repository is
+distributed under the GPL-3.0. The full licence text is in LICENSE.
+
+The setup targets niri (https://github.com/niri-wm/niri, GPL-3.0) and
+noctalia-shell (https://github.com/noctalia-dev/noctalia, MIT). Two lines in
+misc.kdl also appear in the Niri page of the Noctalia documentation
+(https://github.com/noctalia-dev/noctalia-docs), which carries no licence
+file; they reach this repository through the GPL-3.0 CachyOS file, and they
+are two lines of functional configuration plus one comment.
+
+settings.json is a settings dump written by noctalia-shell and holds my own
+values. display.kdl, kittybackup.conf and README.md are mine.
+configfastfetch.jsonc follows a boxed fastfetch layout that circulates widely
+in the dotfiles community; I could not trace it to a single author, and
+everything substantive in it (logo path, custom format, hard coded strings) is
+mine.

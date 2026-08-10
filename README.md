@@ -34,3 +34,9 @@ The output names and modes in `display.kdl` are specific to this machine — set
 ## Caveats
 
 Single commit from May 2026, kept as a restore point rather than a maintained config. The inline comments are in Indonesian.
+
+## License
+
+GPL-3.0. The niri files here started as copies of the config CachyOS ships in
+[cachyos-niri-noctalia](https://github.com/CachyOS/cachyos-niri-noctalia), which is
+GPL-3.0, so this repo inherits it. [NOTICE](NOTICE) lists what came from where.
