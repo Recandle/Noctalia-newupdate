@@ -10,7 +10,7 @@ A later, tidier take on my [niri](https://github.com/YaLTeR/niri) + [noctalia-sh
 | --- | --- |
 | `display.kdl` | Outputs. `DP-1` at 2560x1440@99.946 as the primary at `0,0` with `focus-at-startup`, `HDMI-A-2` at 1920x1080@60 to its right, and the laptop panel `eDP-1` switched off. |
 | `layout.kdl` | 16px gaps, single columns always centered, focus ring and border both off, transparent background, and preset column widths at ⅓ / ½ / ⅔. |
-| `rules.kdl` | Window rules and blur — 3 passes, offset 3.5, noise 0.02, saturation 1.7, 20px corner radius, and 0.74 opacity. The comments record what neighbouring opacity values look like, since that one number decides how much wallpaper reads through. |
+| `rules.kdl` | Window rules and blur: 3 passes, offset 3.5, noise 0.02, saturation 1.7, 20px corner radius, and 0.74 opacity. The comments record what neighbouring opacity values look like, since that one number decides how much wallpaper reads through. |
 | `misc.kdl` | Top-level odds and ends: `prefer-no-csd`, Wayland and Qt environment variables, the `capitaine-cursors` theme at size 24, hotkey overlay skipped at startup, and `honor-xdg-activation-with-invalid-serial` so noctalia's notification actions and window activation work. |
 | `autostart.kdl` | Starts `qs -c noctalia-shell` and `blueman-applet`. |
 | `keybinds.kdl` | Key bindings, with noctalia driven over IPC (`qs -c noctalia-shell ipc call ...`). |
@@ -21,7 +21,7 @@ A later, tidier take on my [niri](https://github.com/YaLTeR/niri) + [noctalia-sh
 | --- | --- | --- |
 | `settings.json` | `~/.config/noctalia/` | noctalia-shell settings dump. |
 | `configfastfetch.jsonc` | `~/.config/fastfetch/` | fastfetch config. |
-| `kittybackup.conf` | `~/.config/kitty/` | Just the transparency lines — 0.25 background opacity with blur at 120. The comment is a reminder that the `background` colour has to stay commented out or the blur is painted over. |
+| `kittybackup.conf` | `~/.config/kitty/` | Just the transparency lines, 0.25 background opacity with blur at 120. The comment is a reminder that the `background` colour has to stay commented out or the blur is painted over. |
 
 ## Requirements
 
@@ -29,7 +29,7 @@ niri, Quickshell, noctalia-shell, kitty, fastfetch, blueman, and the `capitaine-
 
 ## Before you use it
 
-The output names and modes in `display.kdl` are specific to this machine — set your own before using it, or you will end up with a blank or misplaced desktop. `settings.json` and `configfastfetch.jsonc` also reference paths under `/home/sannur`.
+The output names and modes in `display.kdl` are specific to this machine, so set your own before using it, or you will end up with a blank or misplaced desktop. `settings.json` and `configfastfetch.jsonc` also reference paths under `/home/sannur`.
 
 ## Caveats
 
